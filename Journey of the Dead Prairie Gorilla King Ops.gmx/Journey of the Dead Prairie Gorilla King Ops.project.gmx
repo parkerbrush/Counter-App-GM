@@ -13,16 +13,13 @@
       <sprite>sprites\spr_player_up</sprite>
     </sprites>
     <sprite>sprites\spr_bullet</sprite>
-<<<<<<< HEAD
-    <sprite>sprites\spr_start_game</sprite>
-=======
     <sprites name="Background">
       <sprite>sprites\spr_rock</sprite>
     </sprites>
->>>>>>> origin/master
+    <sprite>sprites\spr_start_game</sprite>
   </sprites>
   <backgrounds name="background">
-    <background>background\bg_start</background>
+    <background>background\bg_start_game</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -32,14 +29,11 @@
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_bullet</object>
-<<<<<<< HEAD
-    <object>objects\obj_start_game</object>
-=======
     <object>objects\obj_rock</object>
->>>>>>> origin/master
+    <object>objects\obj_start_game</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_start</room>
+    <room>rooms\rm_start_game</room>
     <room>rooms\rm_test</room>
   </rooms>
   <help>

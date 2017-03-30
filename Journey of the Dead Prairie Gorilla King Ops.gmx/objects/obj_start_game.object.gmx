@@ -51,7 +51,7 @@
             <string>flash += 1;
 
 if (keyboard_check(vk_space)) {
-    room_goto (rm_test);
+    room_goto(rm_test);
 }
 </string>
           </argument>
@@ -75,11 +75,10 @@ if (keyboard_check(vk_space)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-if (flash mod 10 == 0) {
+            <string>if (flash mod 10 == 0) {
 
 } else {
-draw_self();
+    draw_self();
 }
 </string>
           </argument>
