@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>sprite_index = spr_player_idle;
 timer = 0;
+until_bullet = 0;
 </string>
           </argument>
         </arguments>
@@ -50,7 +51,7 @@ timer = 0;
           <argument>
             <kind>1</kind>
             <string>/// Movement and Firing
-
+if (until_bullet &gt; 0) until_bullet -= 1;
 
 if keyboard_check(ord("W"))
     {
@@ -86,20 +87,18 @@ if (!keyboard_check(vk_left) &amp;&amp; !keyboard_check(vk_right) &amp;&amp; !ke
     image_xscale =1;
 }
 
-if (keyboard_check(vk_left)) {
-    if (timer == 15) {
-        with(instance_create (x,y, obj_bullet) ) {
-            image_angle = 270;
-        }
-    } else {
-        timer += 1;
+if (keyboard_check(vk_left) &amp;&amp; until_bullet == 0) {
+    until_bullet = 12;
+    with(instance_create (x,y, obj_bullet) ) {
+        image_angle = 270;
     }
     image_speed = 0;
     sprite_index = spr_player_side;
     image_xscale = 1;
 } 
 
-if (keyboard_check(vk_down)) {
+if (keyboard_check(vk_down) &amp;&amp; until_bullet == 0) {
+    until_bullet = 12;
     with(instance_create (x,y, obj_bullet) ) {
         image_angle = 0;
     }
@@ -108,7 +107,8 @@ if (keyboard_check(vk_down)) {
     image_xscale = 1;
 }
 
-if (keyboard_check(vk_up)) {
+if (keyboard_check(vk_up) &amp;&amp; until_bullet == 0) {
+    until_bullet = 12;
     with(instance_create (x,y, obj_bullet) ) {
         image_angle = 180;
     }
@@ -117,7 +117,8 @@ if (keyboard_check(vk_up)) {
     image_xscale = 1;
 }
 
-if (keyboard_check(vk_right)) {
+if (keyboard_check(vk_right) &amp;&amp; until_bullet == 0) {
+    until_bullet = 12;
     with(instance_create (x,y, obj_bullet) ) {
         image_angle = 90;
     }

@@ -27,7 +27,6 @@
             <kind>1</kind>
             <string>timer = 0;
 damage = 1;
-
 </string>
           </argument>
         </arguments>
