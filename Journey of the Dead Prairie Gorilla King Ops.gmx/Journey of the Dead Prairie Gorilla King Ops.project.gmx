@@ -6,17 +6,20 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
+    <sprites name="walls">
+      <sprite>sprites\spr_wall_top</sprite>
+    </sprites>
     <sprites name="Player">
       <sprite>sprites\spr_player_idle</sprite>
       <sprite>sprites\spr_player_side</sprite>
       <sprite>sprites\spr_player_down</sprite>
       <sprite>sprites\spr_player_up</sprite>
     </sprites>
-    <sprite>sprites\spr_bullet</sprite>
     <sprites name="Background">
       <sprite>sprites\spr_rock</sprite>
     </sprites>
     <sprite>sprites\spr_start_game</sprite>
+    <sprite>sprites\spr_bullet</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_start_game</background>
@@ -24,13 +27,18 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\check_motion.gml</script>
+    <script>scripts\check_inputs.gml</script>
     <script>scripts\check_fire.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_bullet</object>
-    <object>objects\obj_rock</object>
     <object>objects\obj_start_game</object>
+    <objects name="walls">
+      <object>objects\obj_solid</object>
+      <object>objects\obj_wall_top</object>
+      <object>objects\obj_rock</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start_game</room>

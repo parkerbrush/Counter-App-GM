@@ -28,6 +28,10 @@
             <string>sprite_index = spr_player_idle;
 timer = 0;
 until_bullet = 0;
+vx = 0;
+vy = 0;
+player_speed = 1;
+
 </string>
           </argument>
         </arguments>
@@ -52,33 +56,37 @@ until_bullet = 0;
             <kind>1</kind>
             <string>/// Movement and Firing
 if (until_bullet &gt; 0) until_bullet -= 1;
+check_inputs();
 
-if keyboard_check(ord("W"))
+vx = (right - left) * player_speed;
+vy = (down - up) * player_speed;
+
+if (up)
     {
     sprite_index = spr_player_up;
-    y -= 1;
+    vy = -1 * player_speed;
     image_xscale = 1;
     }
     
-if keyboard_check(ord("S"))
+if (down)
     {
     sprite_index = spr_player_down;
-    y += 1;
+    vy = player_speed;
     image_xscale = 1;
     }
     
-if keyboard_check(ord("A"))
+if (left)
     {
-    x -= 1;
+    vx = -1 * player_speed;
     sprite_index = spr_player_side;
     image_xscale = 1;
     }
     
-if keyboard_check(ord("D"))
+if (right)
     {
     sprite_index = spr_player_side;
     image_xscale = -1;
-    x += 1;
+    vx = player_speed;
     }
 
 if (!keyboard_check(vk_left) &amp;&amp; !keyboard_check(vk_right) &amp;&amp; !keyboard_check(vk_up) &amp;&amp; !keyboard_check(vk_down)
@@ -118,6 +126,24 @@ if (keyboard_check(vk_right) &amp;&amp; until_bullet == 0) {
 
 check_fire();
 check_motion();
+
+// collision
+
+repeat (abs(vx) ) {
+    if (!place_meeting(x + sign(vx), y, obj_solid) ) {
+        x += sign(vx);
+    } else {
+        break;
+    }
+}
+
+repeat (abs(vy) ) {
+    if (!place_meeting(x , y + sign(vy), obj_solid) ) {
+        y += sign(vy);
+    } else {
+        break;
+    }
+}
 
 
 </string>
