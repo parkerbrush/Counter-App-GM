@@ -115,8 +115,9 @@ if (keyboard_check(vk_right) &amp;&amp; until_bullet == 0) {
     }
 }
 
-check_motion();
+
 check_fire();
+check_motion();
 
 
 </string>
