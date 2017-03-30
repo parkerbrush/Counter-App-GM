@@ -92,9 +92,6 @@ if (keyboard_check(vk_left) &amp;&amp; until_bullet == 0) {
     with(instance_create (x,y, obj_bullet) ) {
         image_angle = 270;
     }
-    image_speed = 0;
-    sprite_index = spr_player_side;
-    image_xscale = 1;
 } 
 
 if (keyboard_check(vk_down) &amp;&amp; until_bullet == 0) {
@@ -102,9 +99,6 @@ if (keyboard_check(vk_down) &amp;&amp; until_bullet == 0) {
     with(instance_create (x,y, obj_bullet) ) {
         image_angle = 0;
     }
-    image_speed = 0;
-    sprite_index = spr_player_down;
-    image_xscale = 1;
 }
 
 if (keyboard_check(vk_up) &amp;&amp; until_bullet == 0) {
@@ -112,9 +106,6 @@ if (keyboard_check(vk_up) &amp;&amp; until_bullet == 0) {
     with(instance_create (x,y, obj_bullet) ) {
         image_angle = 180;
     }
-    image_speed = 0;
-    sprite_index = spr_player_up;
-    image_xscale = 1;
 }
 
 if (keyboard_check(vk_right) &amp;&amp; until_bullet == 0) {
@@ -122,12 +113,12 @@ if (keyboard_check(vk_right) &amp;&amp; until_bullet == 0) {
     with(instance_create (x,y, obj_bullet) ) {
         image_angle = 90;
     }
-    image_speed = 0;
-    sprite_index = spr_player_side;
-    image_xscale = -1;
 }
 
-check_motion()
+check_motion();
+check_fire();
+
+
 </string>
           </argument>
         </arguments>
