@@ -13,6 +13,9 @@
       <sprite>sprites\spr_player_up</sprite>
     </sprites>
     <sprite>sprites\spr_bullet</sprite>
+    <sprites name="Background">
+      <sprite>sprites\spr_rock</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -23,6 +26,7 @@
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_bullet</object>
+    <object>objects\obj_rock</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>
