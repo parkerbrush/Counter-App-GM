@@ -14,18 +14,24 @@
       <sprite>sprites\spr_player_side</sprite>
       <sprite>sprites\spr_player_down</sprite>
       <sprite>sprites\spr_player_up</sprite>
+      <sprite>sprites\spr_bullet</sprite>
     </sprites>
     <sprites name="Background">
       <sprite>sprites\spr_rock</sprite>
     </sprites>
+    <sprites name="enemies">
+      <sprite>sprites\spr_enemy_test</sprite>
+    </sprites>
+    <sprite>sprites\spr_end_game</sprite>
     <sprite>sprites\spr_start_game</sprite>
-    <sprite>sprites\spr_bullet</sprite>
   </sprites>
   <backgrounds name="background">
+    <background>background\bg_end_game</background>
     <background>background\bg_start_game</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\script3.gml</script>
     <script>scripts\check_motion.gml</script>
     <script>scripts\check_inputs.gml</script>
     <script>scripts\check_fire.gml</script>
@@ -39,10 +45,16 @@
       <object>objects\obj_wall_top</object>
       <object>objects\obj_rock</object>
     </objects>
+    <objects name="enemies">
+      <object>objects\obj_enemy_test</object>
+      <object>objects\obj_par_enemy</object>
+    </objects>
+    <object>objects\obj_end_game</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start_game</room>
     <room>rooms\rm_test</room>
+    <room>rooms\rm_end_game</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
