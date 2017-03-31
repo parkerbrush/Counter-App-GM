@@ -58,31 +58,31 @@ player_speed = 1;
 if (until_bullet &gt; 0) until_bullet -= 1;
 check_inputs();
 
-vx = (right - left) * player_speed;
-vy = (down - up) * player_speed;
+vx = (D - A) * player_speed;
+vy = (S - W) * player_speed;
 
-if (up)
+if (W)
     {
     sprite_index = spr_player_up;
     vy = -1 * player_speed;
     image_xscale = 1;
     }
     
-if (down)
+if (S)
     {
     sprite_index = spr_player_down;
     vy = player_speed;
     image_xscale = 1;
     }
     
-if (left)
+if (A)
     {
     vx = -1 * player_speed;
     sprite_index = spr_player_side;
     image_xscale = 1;
     }
     
-if (right)
+if (D)
     {
     sprite_index = spr_player_side;
     image_xscale = -1;
@@ -95,35 +95,61 @@ if (!keyboard_check(vk_left) &amp;&amp; !keyboard_check(vk_right) &amp;&amp; !ke
     image_xscale =1;
 }
 
-if (keyboard_check(vk_left) &amp;&amp; until_bullet == 0) {
+if (L &amp;&amp; !R &amp;&amp; !D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {
     until_bullet = 12;
     with(instance_create (x,y, obj_bullet) ) {
         image_angle = 270;
     }
 } 
 
-if (keyboard_check(vk_down) &amp;&amp; until_bullet == 0) {
+if (!L &amp;&amp; !R &amp;&amp; D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {
     until_bullet = 12;
     with(instance_create (x,y, obj_bullet) ) {
         image_angle = 0;
     }
 }
 
-if (keyboard_check(vk_up) &amp;&amp; until_bullet == 0) {
+if (!L &amp;&amp; !R &amp;&amp; !D2 &amp;&amp; U &amp;&amp; until_bullet == 0) {
     until_bullet = 12;
     with(instance_create (x,y, obj_bullet) ) {
         image_angle = 180;
     }
 }
 
-if (keyboard_check(vk_right) &amp;&amp; until_bullet == 0) {
+if (!L &amp;&amp; R &amp;&amp; !D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {
     until_bullet = 12;
     with(instance_create (x,y, obj_bullet) ) {
         image_angle = 90;
     }
 }
 
+if (!L &amp;&amp; R &amp;&amp; !D2 &amp;&amp; U &amp;&amp; until_bullet == 0) {
+    until_bullet = 12;
+    with(instance_create (x,y, obj_bullet) ) {
+        image_angle = 135;
+    }
+}
 
+if (!L &amp;&amp; R &amp;&amp; D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {
+    until_bullet = 12;
+    with(instance_create (x,y, obj_bullet) ) {
+        image_angle = 45;
+    }
+}
+
+if (L &amp;&amp; !R &amp;&amp; !D2 &amp;&amp; U &amp;&amp; until_bullet == 0) {
+    until_bullet = 12;
+    with(instance_create (x,y, obj_bullet) ) {
+        image_angle = 225;
+    }
+}
+
+if (L &amp;&amp; !R &amp;&amp; D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {
+    until_bullet = 12;
+    with(instance_create (x,y, obj_bullet) ) {
+        image_angle = 315;
+    }
+}
 check_fire();
 check_motion();
 

@@ -1,5 +1,11 @@
-left = keyboard_check(ord("A"));
-right = keyboard_check(ord("D"));
-up = keyboard_check(ord("W"));
-down = keyboard_check(ord("S"));
+A = keyboard_check(ord("A"));
+D = keyboard_check(ord("D"));
+W = keyboard_check(ord("W"));
+S = keyboard_check(ord("S"));
+
+L = keyboard_check(vk_left);
+R = keyboard_check(vk_right);
+D2 = keyboard_check(vk_down);
+U = keyboard_check(vk_up);
+
 
