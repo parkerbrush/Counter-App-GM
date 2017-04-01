@@ -33,8 +33,6 @@ vy = 0;
 player_speed = 1;
 
 hp = 1;
-
-
 </string>
           </argument>
         </arguments>
@@ -176,9 +174,12 @@ repeat (abs(vy) ) {
 
 
 // death
+
 if (hp &lt;= 0) {
     room_goto (rm_end_game);
 }
+
+
 
 
 </string>
