@@ -7,7 +7,7 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprites name="walls">
-      <sprite>sprites\spr_wall_top</sprite>
+      <sprite>sprites\spr_wall</sprite>
     </sprites>
     <sprites name="Player">
       <sprite>sprites\spr_player_idle</sprite>
@@ -21,6 +21,7 @@
     </sprites>
     <sprites name="enemies">
       <sprite>sprites\spr_enemy_test</sprite>
+      <sprite>sprites\spr_enemy_test_spawn</sprite>
     </sprites>
     <sprite>sprites\spr_end_game</sprite>
     <sprite>sprites\spr_start_game</sprite>
@@ -42,12 +43,13 @@
     <object>objects\obj_start_game</object>
     <objects name="walls">
       <object>objects\obj_solid</object>
-      <object>objects\obj_wall_top</object>
+      <object>objects\obj_wall</object>
       <object>objects\obj_rock</object>
     </objects>
     <objects name="enemies">
       <object>objects\obj_enemy_test</object>
       <object>objects\obj_par_enemy</object>
+      <object>objects\obj_enemy_test_spawn</object>
     </objects>
     <object>objects\obj_end_game</object>
   </objects>
