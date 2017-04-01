@@ -48,9 +48,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>flash += 1;
+            <string>flash ++;
 
-if (keyboard_check(vk_space)) {
+if (keyboard_check_pressed(vk_space)) {
     room_goto(rm_test);
 }
 </string>

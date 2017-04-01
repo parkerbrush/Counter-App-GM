@@ -49,12 +49,12 @@ flash = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>flash ++;
+            <string>flash++;
 
-if (keyboard_check(vk_space) &amp;&amp; endtime &gt;= 60) {
-    room_goto (rm_test);
+if (keyboard_check_pressed(vk_space) &amp;&amp; endtime &gt;= 60) {
+    room_goto(rm_start_game);
 } else {
-    endtime ++;
+    endtime++;
 }
 
 </string>

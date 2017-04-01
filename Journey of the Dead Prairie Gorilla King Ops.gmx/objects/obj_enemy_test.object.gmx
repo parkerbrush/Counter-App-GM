@@ -29,9 +29,17 @@
 hp = 2;
 damage = 1;
 
-move_speed = .5;
+vx = 0.5; 
+vy = 0.5;
+xChange = 0;
+yChange = 0;
+guessing = false;
 
-temps = 0;
+var guessSpeed; //1 for right/left, 0 for up/down
+var collisionType; //1 for right/left, 0 for up/down
+randomMotion = false;
+randomCounter = 0;
+randomDir = 0;
 </string>
           </argument>
         </arguments>
@@ -59,8 +67,112 @@ if (hp = 0) {
     instance_destroy();
 }
 
-mp_linear_step_object(obj_player.x, obj_player.y, .5, obj_wall_top)
+if ((irandom(299) == 0) &amp;&amp; !randomMotion) {
+    randomMotion = true;
+    randomDir = irandom(3);
+    
+}
 
+if (!guessing &amp;&amp; !randomMotion) {
+
+    if (abs(x - obj_player.x) &gt; abs(y - obj_player.y)) {
+        xChange = -1 * sign(x - obj_player.x) * vx;
+        yChange = 0;
+    } else {
+        yChange = -1 * sign(y - obj_player.y) * vy;
+        xChange = 0;
+    }
+    
+    if (place_meeting(x + sign(xChange), y, obj_solid)) {
+        xChange = 0;
+        yChange = -1 * sign(y - obj_player.y) * vy;
+    }
+    
+    if (place_meeting(x, y + sign(yChange), obj_solid)) {
+        yChange = 0;
+        xChange = -1 * sign(x - obj_player.x) * vx;
+    } 
+    
+    x += xChange;
+    y += yChange;
+    
+    if (xChange == 0 &amp;&amp; yChange == 0) {
+    
+        guessing = true;
+    
+        if (irandom(1) == 1) {
+            guessSpeed = 0.5;
+        } else {
+            guessSpeed = -0.5;
+        }
+        
+        if (place_meeting(x + 1, y, obj_solid) || place_meeting(x - 1, y, obj_solid)) {
+            collisionType = 1;
+        } else {
+            collisionType = 0;               
+        }
+                
+    }
+}
+
+if (guessing &amp;&amp; !randomMotion) {
+    if (collisionType == 1) {
+        if (!place_meeting(x, y + guessSpeed * 2, obj_solid)) {
+            y += guessSpeed;
+        } else {guessing = false;}
+    } else {
+        if (!place_meeting(x + guessSpeed * 2, y, obj_solid)) {
+            x += guessSpeed;
+        } else {guessing = false;} 
+    }
+    
+    if (!place_meeting(x + 1, y, obj_solid) &amp;&amp; !place_meeting(x - 1, y, obj_solid) &amp;&amp; !place_meeting(x, y + 1, obj_solid) &amp;&amp; !place_meeting(x, y - 1, obj_solid)) {
+        guessing = false;
+    }
+    
+}
+
+if (randomMotion) {
+
+    randomCounter++;
+    
+    //right
+    if (randomDir == 0) {
+        if (!place_meeting(x + 1, y, obj_solid)) {
+            x += 0.5;
+        } else {randomMotion = false;}
+    }
+    
+    //up
+    else if (randomDir == 1) {
+        if (!place_meeting(x , y - 1, obj_solid)) {
+            y -= 0.5;
+        } else {randomMotion = false;}
+    }
+    
+    //left
+    else if (randomDir == 2) {
+        if (!place_meeting(x - 1, y, obj_solid)) {
+            x -= 0.5;
+        } else {randomMotion = false;}
+    }   
+    
+    //down
+    else if (randomDir == 3) {
+        if (!place_meeting(x , y + 1, obj_solid)) {
+            y += 0.5;
+        } else {randomMotion = false;}
+    }
+    
+    if (randomCounter == 60) {
+        randomCounter = 0;
+        randomMotion = false;
+    }
+    
+}
+
+//guessSpeed; 
+//collisionType; 
 </string>
           </argument>
         </arguments>
