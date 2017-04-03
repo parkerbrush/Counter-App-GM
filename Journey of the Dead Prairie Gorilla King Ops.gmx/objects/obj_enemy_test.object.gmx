@@ -64,6 +64,7 @@ randomDir = 0;
             <kind>1</kind>
             <string>
 if (hp = 0) {
+    if (irandom(9) == 0) instance_create(x,y,obj_powerup);
     instance_destroy();
 }
 

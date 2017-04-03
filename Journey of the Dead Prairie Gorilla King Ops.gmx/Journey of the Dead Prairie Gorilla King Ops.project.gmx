@@ -25,6 +25,9 @@
     </sprites>
     <sprite>sprites\spr_end_game</sprite>
     <sprite>sprites\spr_start_game</sprite>
+    <sprites name="PowerUps">
+      <sprite>sprites\sprite11</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_end_game</background>
@@ -52,6 +55,9 @@
       <object>objects\obj_enemy_test_spawn</object>
     </objects>
     <object>objects\obj_end_game</object>
+    <objects name="PowerUps">
+      <object>objects\obj_powerup</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start_game</room>
