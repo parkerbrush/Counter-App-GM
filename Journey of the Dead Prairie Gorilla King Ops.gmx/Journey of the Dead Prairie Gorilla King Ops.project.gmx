@@ -21,12 +21,17 @@
     </sprites>
     <sprites name="enemies">
       <sprite>sprites\spr_enemy_test</sprite>
-      <sprite>sprites\spr_enemy_test_spawn</sprite>
     </sprites>
     <sprite>sprites\spr_end_game</sprite>
     <sprite>sprites\spr_start_game</sprite>
     <sprites name="PowerUps">
-      <sprite>sprites\sprite11</sprite>
+      <sprite>sprites\spr_powerup_firerate</sprite>
+    </sprites>
+    <sprites name="spawn">
+      <sprite>sprites\spr_enemy_test_spawn</sprite>
+      <sprite>sprites\spr_enemy_test_spawn2</sprite>
+      <sprite>sprites\spr_enemy_test_spawn3</sprite>
+      <sprite>sprites\spr_enemy_test_spawn4</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -41,6 +46,12 @@
     <script>scripts\check_fire.gml</script>
   </scripts>
   <objects name="objects">
+    <objects name="spawn">
+      <object>objects\obj_enemy_test_spawn</object>
+      <object>objects\obj_enemy_test_spawn4</object>
+      <object>objects\obj_enemy_test_spawn3</object>
+      <object>objects\obj_enemy_test_spawn2</object>
+    </objects>
     <object>objects\obj_player</object>
     <object>objects\obj_bullet</object>
     <object>objects\obj_start_game</object>
@@ -52,7 +63,6 @@
     <objects name="enemies">
       <object>objects\obj_enemy_test</object>
       <object>objects\obj_par_enemy</object>
-      <object>objects\obj_enemy_test_spawn</object>
     </objects>
     <object>objects\obj_end_game</object>
     <objects name="PowerUps">
