@@ -146,6 +146,7 @@
     <instance objName="obj_enemy_test_spawn" x="256" y="112" name="inst_3809025C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rock" x="16" y="160" name="inst_9BAE315C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy_test_spawn" x="256" y="96" name="inst_0F00B219" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_blob" x="112" y="160" name="inst_C6300E8E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
