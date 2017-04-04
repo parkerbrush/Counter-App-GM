@@ -31,7 +31,7 @@ until_bullet = 0;
 bullet_count = 12;
 vx = 0;
 vy = 0;
-player_speed = 1;
+player_speed = 2;
 
 hp = 1;
 </string>

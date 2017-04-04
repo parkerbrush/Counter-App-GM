@@ -48,12 +48,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (A mod 300 == 0) {
-    if (irandom(100) == 0) {
+            <string>if (A mod 420 == 0) {
+    if (irandom(399) == 0) {
         instance_create(x + 8, y + 8, obj_enemy_test);
-        A = 0;
-    }
-} else {
+        A ++;
+        }
+    } else {
     A ++;
 }
 </string>
