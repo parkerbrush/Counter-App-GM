@@ -24,8 +24,6 @@
       <sprite>sprites\spr_enemy_test</sprite>
       <sprite>sprites\spr_blob</sprite>
     </sprites>
-    <sprite>sprites\spr_end_game</sprite>
-    <sprite>sprites\spr_start_game</sprite>
     <sprites name="PowerUps">
       <sprite>sprites\spr_powerup_firerate</sprite>
     </sprites>
@@ -35,6 +33,11 @@
       <sprite>sprites\spr_enemy_test_spawn3</sprite>
       <sprite>sprites\spr_enemy_test_spawn4</sprite>
     </sprites>
+    <sprites name="Game info">
+      <sprite>sprites\spr_end_game</sprite>
+      <sprite>sprites\spr_start_game</sprite>
+    </sprites>
+    <sprite>sprites\spr_boss_head</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_end_game</background>
@@ -45,17 +48,15 @@
     <script>scripts\check_motion.gml</script>
     <script>scripts\check_inputs.gml</script>
     <script>scripts\check_fire.gml</script>
+    <script>scripts\scr_enemy_self_collision.gml</script>
   </scripts>
   <objects name="objects">
     <objects name="spawn">
-      <object>objects\obj_enemy_test_spawn1</object>
+      <object>objects\obj_enemy_test_a_spawn</object>
       <object>objects\obj_enemy_test_spawn4</object>
       <object>objects\obj_enemy_test_spawn3</object>
       <object>objects\obj_enemy_test_spawn2</object>
     </objects>
-    <object>objects\obj_player</object>
-    <object>objects\obj_bullet</object>
-    <object>objects\obj_start_game</object>
     <objects name="walls">
       <object>objects\obj_solid</object>
       <object>objects\obj_wall</object>
@@ -66,11 +67,18 @@
       <object>objects\obj_par_enemy</object>
       <object>objects\obj_blob</object>
     </objects>
-    <object>objects\obj_end_game</object>
     <objects name="PowerUps">
       <object>objects\obj_powerup</object>
     </objects>
-    <object>objects\ideas</object>
+    <objects name="game info">
+      <object>objects\obj_game</object>
+      <object>objects\obj_end_game</object>
+      <object>objects\obj_start_game</object>
+    </objects>
+    <objects name="Player">
+      <object>objects\obj_bullet</object>
+      <object>objects\obj_player</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>

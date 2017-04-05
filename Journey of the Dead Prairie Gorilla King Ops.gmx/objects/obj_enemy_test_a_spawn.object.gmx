@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>A = 1;
+            <string>aSpawn = 1;
 </string>
           </argument>
         </arguments>
@@ -48,11 +48,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (A mod 240 == 0 &amp;&amp; irandom(2) == 0) {
+            <string>if (aSpawn mod 240 == 0 &amp;&amp; irandom(2) == 0) {
     instance_create(x + 16, y + 16, obj_enemy_test);
-    A ++;
+    aSpawn++;
 } else {
-    A ++;
+    aSpawn++;
 }
 </string>
           </argument>
