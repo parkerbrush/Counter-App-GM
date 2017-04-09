@@ -70,10 +70,12 @@ if (obj_boss_head.attacking1 &amp;&amp; !attacking &amp;&amp; !returning) {
     }  
 } else if (returning) {
     //return to boss' side
-    if(image_angle % 360 &gt; orig_image_angle % 360) image_angle -= 2;
-    else if (image_angle % 360 &lt; orig_image_angle % 360 ) image_angle += 2;
+    if (abs((image_angle % 360) - orig_image_angle) &lt;= 4) image_angle = orig_image_angle;
     
-    move_towards_point(orig_x, orig_y, 3);
+    if(image_angle % 360 &gt; orig_image_angle % 360) image_angle -= 4;
+    else if (image_angle % 360 &lt; orig_image_angle % 360 ) image_angle += 4;
+    
+    move_towards_point(orig_x, orig_y, 4);
     
     if (x &gt; orig_x - 3 &amp;&amp; 
         x &lt; orig_x + 3 &amp;&amp; 

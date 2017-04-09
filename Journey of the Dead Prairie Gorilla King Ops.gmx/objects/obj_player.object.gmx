@@ -32,8 +32,33 @@ bullet_count = 12;
 vx = 0;
 vy = 0;
 player_speed = 2;
+damaged = false;
 
-hp = 1;
+hp = 3;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>image_alpha = 1;
+damaged = false;
 </string>
           </argument>
         </arguments>
@@ -211,7 +236,7 @@ if (hp &lt;= 0) {
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_enemy_test">
+    <event eventtype="4" ename="obj_par_enemy">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -228,7 +253,12 @@ if (hp &lt;= 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hp -= other.damage;
+            <string>if (!damaged) {
+    hp -= other.damage;
+    damaged = true;
+    alarm[1] = 120;
+    image_alpha = 0.6;
+}
 </string>
           </argument>
         </arguments>
