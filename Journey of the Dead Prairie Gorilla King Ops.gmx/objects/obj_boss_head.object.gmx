@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_par_enemy</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -28,8 +28,36 @@
             <string>image_speed = 0.2;
 attacking1 = false;
 attacking2 = false;
-attacking3 = false;
 timer = 1;   //give a 3 second buffer before an attack
+hp = 50;
+bulletDamage = 1;
+damage = 1;
+attackRange = 1;
+deathCount = 180;
+dying = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>sprite_index = spr_boss_head;
 </string>
           </argument>
         </arguments>
@@ -52,31 +80,78 @@ timer = 1;   //give a 3 second buffer before an attack
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//every 3 seconds choose the arms to attack
-if (timer % (3 * 60) == 0) {
-    temp = irandom(1);
+            <string>if (hp &lt;= 25) {
+    attackRange = 3;
+}
+
+if (hp &lt;= 0) {
+    deathCount = 180;
+    dying = true;
+    sprite_index = spr_boss_death;
+}
+
+//every 3 seconds choose the arms to attack
+if ((timer % (3 * 60) == 0) &amp;&amp; !dying) {
+    temp = irandom(attackRange);
     if (temp == 0) {        //left arm
         attacking1 = true;
         attacking2 = false;
-        attacking3 = false;
     } else if (temp == 1) { //right arm
         attacking1 = false;
         attacking2 = true;
-        attacking3 = false;
-    } else if (temp == 2) { //both arms
-        attacking1 = false;
-        attacking2 = false;
-        attacking3 = true;
+    } else if (temp &gt;= 2) { //both arms
+        attacking1 = true;
+        attacking2 = true;
     }
 } else {
     attacking1 = false;
     attacking2 = false;
-    attacking3 = false;
 }
 
 timer++;
 
 if (timer &gt;= (3600)) timer = 0;
+
+if (dying) {
+    if (deathCount == 0) {
+        with (obj_boss_arm_left) instance_destroy();
+        with (obj_boss_arm_right) instance_destroy();
+        instance_destroy();
+    }
+
+    image_alpha -= (1 / 180);
+    with (obj_boss_arm_left) image_alpha -= (1 / 180);    
+    with (obj_boss_arm_right) image_alpha -= (1 / 180);
+    
+    deathCount--;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_bullet">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(!dying) {
+    hp -= other.damage;
+    sprite_index = spr_boss_head_damaged;
+    alarm[0] = 5;
+}
 </string>
           </argument>
         </arguments>

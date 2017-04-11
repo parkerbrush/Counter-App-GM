@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>timer = 0;
 damage = 1;
-hp = 2;
+hp = 1;
 speed = 8;
 </string>
           </argument>
@@ -80,7 +80,7 @@ if (hp &lt;= 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hp -= other.damage;
+            <string>hp -= other.bulletDamage;
 </string>
           </argument>
         </arguments>

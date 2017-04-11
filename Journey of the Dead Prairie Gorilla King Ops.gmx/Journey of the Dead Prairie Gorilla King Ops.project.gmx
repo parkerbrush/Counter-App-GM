@@ -41,6 +41,8 @@
       <sprite>sprites\spr_arm_left</sprite>
       <sprite>sprites\spr_boss_head</sprite>
       <sprite>sprites\spr_arm_right</sprite>
+      <sprite>sprites\spr_boss_head_damaged</sprite>
+      <sprite>sprites\spr_boss_death</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">

@@ -28,6 +28,7 @@
             <string>
 hp = 1;
 damage = 1;
+bulletDamage = 1;
 
 vx = 1; 
 vy = 1;

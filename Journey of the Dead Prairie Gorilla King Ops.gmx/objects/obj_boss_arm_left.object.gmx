@@ -29,6 +29,7 @@
 returning = false;
 hp = 6;
 damage = 2;
+bulletDamage = 1;
 orig_image_angle = image_angle;
 orig_x = x;
 orig_y = y;
@@ -57,10 +58,10 @@ orig_y = y;
             <string>// check if attacking signal, and not already attacking
 if (obj_boss_head.attacking1 &amp;&amp; !attacking &amp;&amp; !returning) {
     attacking = true;
-    hp = 6;
+    hp = 4;
 } else if (attacking) {
     image_angle += 2;
-    move_towards_point(obj_player.x, obj_player.y, 2);
+    move_towards_point(obj_player.x, obj_player.y, 3);
     if (hp &lt;= 0) {
         attacking = false;
         returning = true;
@@ -70,12 +71,12 @@ if (obj_boss_head.attacking1 &amp;&amp; !attacking &amp;&amp; !returning) {
     }  
 } else if (returning) {
     //return to boss' side
-    if (abs((image_angle % 360) - orig_image_angle) &lt;= 4) image_angle = orig_image_angle;
+    if (abs((image_angle % 360) - orig_image_angle) &lt;= 6) image_angle = orig_image_angle;
     
-    if(image_angle % 360 &gt; orig_image_angle % 360) image_angle -= 4;
-    else if (image_angle % 360 &lt; orig_image_angle % 360 ) image_angle += 4;
+    if(image_angle % 360 &gt; orig_image_angle % 360) image_angle -= 6;
+    else if (image_angle % 360 &lt; orig_image_angle % 360 ) image_angle += 6;
     
-    move_towards_point(orig_x, orig_y, 4);
+    move_towards_point(orig_x, orig_y, 6);
     
     if (x &gt; orig_x - 3 &amp;&amp; 
         x &lt; orig_x + 3 &amp;&amp; 
@@ -109,7 +110,7 @@ if (obj_boss_head.attacking1 &amp;&amp; !attacking &amp;&amp; !returning) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(attacking) hp--;
+            <string>if(attacking) hp -= other.damage;
 </string>
           </argument>
         </arguments>
