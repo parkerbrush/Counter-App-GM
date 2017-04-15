@@ -48,6 +48,7 @@
   <backgrounds name="background">
     <background>background\bg_end_game</background>
     <background>background\bg_start_game</background>
+    <background>background\bg_world_one</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">

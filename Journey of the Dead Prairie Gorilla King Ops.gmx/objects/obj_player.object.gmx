@@ -145,58 +145,58 @@ if (!keyboard_check(vk_left) &amp;&amp; !keyboard_check(vk_right) &amp;&amp; !ke
     image_xscale =1;
 }
 
-if (L &amp;&amp; !R &amp;&amp; !D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {
+if (L &amp;&amp; !R &amp;&amp; !D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {    // left
     until_bullet = bullet_count;
-    with(instance_create (x,y, obj_bullet) ) {
+    with(instance_create (x - 10,y + 2, obj_bullet) ) {
         image_angle = 270;
     }
 } 
 
-if (!L &amp;&amp; !R &amp;&amp; D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {
+if (!L &amp;&amp; !R &amp;&amp; D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {    // down
     until_bullet = bullet_count;
-    with(instance_create (x,y, obj_bullet) ) {
+    with(instance_create (x - 5,y, obj_bullet) ) {
         image_angle = 0;
     }
 }
 
-if (!L &amp;&amp; !R &amp;&amp; !D2 &amp;&amp; U &amp;&amp; until_bullet == 0) {
+if (!L &amp;&amp; !R &amp;&amp; !D2 &amp;&amp; U &amp;&amp; until_bullet == 0) {    // up
     until_bullet = bullet_count;
-    with(instance_create (x,y, obj_bullet) ) {
+    with(instance_create (x - 10,y, obj_bullet) ) {
         image_angle = 180;
     }
 }
 
-if (!L &amp;&amp; R &amp;&amp; !D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {
+if (!L &amp;&amp; R &amp;&amp; !D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {    // right
     until_bullet = bullet_count;
-    with(instance_create (x,y, obj_bullet) ) {
+    with(instance_create (x - 6,y + 2, obj_bullet) ) {
         image_angle = 90;
     }
 }
 
-if (!L &amp;&amp; R &amp;&amp; !D2 &amp;&amp; U &amp;&amp; until_bullet == 0) {
+if (!L &amp;&amp; R &amp;&amp; !D2 &amp;&amp; U &amp;&amp; until_bullet == 0) {     // up-right
     until_bullet = bullet_count;
-    with(instance_create (x,y, obj_bullet) ) {
+    with(instance_create (x - 5,y, obj_bullet) ) {
         image_angle = 135;
     }
 }
 
-if (!L &amp;&amp; R &amp;&amp; D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {
+if (!L &amp;&amp; R &amp;&amp; D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {     // down-right
     until_bullet = bullet_count;
-    with(instance_create (x,y, obj_bullet) ) {
+    with(instance_create (x - 6,y + 8, obj_bullet) ) {
         image_angle = 45;
     }
 }
 
-if (L &amp;&amp; !R &amp;&amp; !D2 &amp;&amp; U &amp;&amp; until_bullet == 0) {
+if (L &amp;&amp; !R &amp;&amp; !D2 &amp;&amp; U &amp;&amp; until_bullet == 0) {     // up-left
     until_bullet = bullet_count;
-    with(instance_create (x,y, obj_bullet) ) {
+    with(instance_create (x - 8,y, obj_bullet) ) {
         image_angle = 225;
     }
 }
 
-if (L &amp;&amp; !R &amp;&amp; D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {
+if (L &amp;&amp; !R &amp;&amp; D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {     // down-left
     until_bullet = bullet_count;
-    with(instance_create (x,y, obj_bullet) ) {
+    with(instance_create (x - 6,y + 10, obj_bullet) ) {
         image_angle = 315;
     }
 }
