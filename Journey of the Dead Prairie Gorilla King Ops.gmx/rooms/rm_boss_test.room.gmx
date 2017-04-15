@@ -120,8 +120,8 @@
     <instance objName="obj_rock" x="0" y="64" name="inst_8B429080" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rock" x="0" y="32" name="inst_6D3BCA16" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_boss_head" x="288" y="96" name="inst_32972E1F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boss_arm_left" x="174" y="148" name="inst_CA1F6268" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="70"/>
-    <instance objName="obj_boss_arm_right" x="408" y="150" name="inst_02F931BA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="-78"/>
+    <instance objName="obj_boss_arm_left" x="146" y="138" name="inst_CA1F6268" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="70"/>
+    <instance objName="obj_boss_arm_right" x="424" y="140" name="inst_02F931BA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="-78"/>
     <instance objName="obj_game" x="522" y="520" name="inst_28D53DC9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="278" y="454" name="inst_E2B89AAF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
