@@ -29,7 +29,8 @@
 attacking1 = false;
 attacking2 = false;
 timer = 1;   //give a 3 second buffer before an attack
-hp = 50;
+maxHp = 20;
+hp = 20;
 bulletDamage = 1;
 damage = 1;
 attackRange = 1;
@@ -80,11 +81,11 @@ dying = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (hp &lt;= 25) {
+            <string>if (hp &lt;= (maxHp/2)) {
     attackRange = 3;
 }
 
-if (hp &lt;= 0) {
+if (hp &lt;= 0 &amp;&amp; !dying) {
     deathCount = 180;
     dying = true;
     sprite_index = spr_boss_death;
@@ -113,7 +114,7 @@ timer++;
 if (timer &gt;= (3600)) timer = 0;
 
 if (dying) {
-    if (deathCount == 0) {
+    if (deathCount &lt;= 0) {
         with (obj_boss_arm_left) instance_destroy();
         with (obj_boss_arm_right) instance_destroy();
         instance_destroy();
@@ -123,7 +124,8 @@ if (dying) {
     with (obj_boss_arm_left) image_alpha -= (1 / 180);    
     with (obj_boss_arm_right) image_alpha -= (1 / 180);
     
-    deathCount--;
+    deathCount-= 1;
+    
 }
 </string>
           </argument>
