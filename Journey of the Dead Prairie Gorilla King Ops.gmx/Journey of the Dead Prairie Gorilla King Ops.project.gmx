@@ -23,6 +23,7 @@
       <sprite>sprites\spr_enemy_octopus</sprite>
       <sprite>sprites\spr_enemy_test</sprite>
       <sprite>sprites\spr_blob</sprite>
+      <sprite>sprites\spr_enemy_splitter</sprite>
     </sprites>
     <sprites name="PowerUps">
       <sprite>sprites\spr_powerup_firerate</sprite>
