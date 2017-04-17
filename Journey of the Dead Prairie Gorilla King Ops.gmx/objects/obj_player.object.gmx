@@ -114,20 +114,17 @@ vy = (S - W) * player_speed;
 if (W)
     {
     sprite_index = spr_player_up;
-    vy = -1 * player_speed;
     image_xscale = 1;
     }
     
 if (S)
     {
     sprite_index = spr_player_down;
-    vy = player_speed;
     image_xscale = 1;
     }
     
 if (A)
     {
-    vx = -1 * player_speed;
     sprite_index = spr_player_side;
     image_xscale = 1;
     }
@@ -136,11 +133,10 @@ if (D)
     {
     sprite_index = spr_player_side;
     image_xscale = -1;
-    vx = player_speed;
     }
 
 if (!keyboard_check(vk_left) &amp;&amp; !keyboard_check(vk_right) &amp;&amp; !keyboard_check(vk_up) &amp;&amp; !keyboard_check(vk_down)
-     &amp;&amp; !keyboard_check(ord("D")) &amp;&amp; !keyboard_check(ord("W")) &amp;&amp; !keyboard_check(ord("S")) &amp;&amp; !keyboard_check(ord("A"))) {
+     &amp;&amp; vx == 0 &amp;&amp; vy == 0 ) {
     sprite_index = spr_player_idle;
     image_xscale =1;
 }
@@ -200,13 +196,14 @@ if (L &amp;&amp; !R &amp;&amp; D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) { 
         image_angle = 315;
     }
 }
+
 check_fire();
 check_motion();
 
 // collision
 
 repeat (abs(vx) ) {
-    if (!place_meeting(x + sign(vx), y, obj_solid) ) {
+    if (!place_meeting(x + (sign(vx) * player_speed), y, obj_solid) ) {
         x += sign(vx);
     } else {
         break;
@@ -214,7 +211,7 @@ repeat (abs(vx) ) {
 }
 
 repeat (abs(vy) ) {
-    if (!place_meeting(x , y + sign(vy), obj_solid) ) {
+    if (!place_meeting(x , y + (sign(vy) * player_speed), obj_solid) ) {
         y += sign(vy);
     } else {
         break;
