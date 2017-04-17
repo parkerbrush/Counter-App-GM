@@ -128,15 +128,20 @@ if (!guessing &amp;&amp; !randomMotion) {
 }
 
 if (guessing &amp;&amp; !randomMotion) {
-    if (collisionType == 1) {
-        if (!place_meeting(x, y + guessSpeed * 2, obj_solid)) {
-            y += guessSpeed;
-        } else {guessing = false;}
-    } else {
-        if (!place_meeting(x + guessSpeed * 2, y, obj_solid)) {
-            x += guessSpeed;
-        } else {guessing = false;} 
+    scr_enemy_self_collision();
+    if(!enemy_collision) {
+        if (collisionType == 1) {
+            if (!place_meeting(x, y + guessSpeed * 2, obj_solid)) {
+                y += guessSpeed;
+            } else {guessing = false;}
+        } else {
+            if (!place_meeting(x + guessSpeed * 2, y, obj_solid)) {
+                x += guessSpeed;
+            } else {guessing = false;} 
+        }
     }
+
+    
     
     if (!place_meeting(x + 1, y, obj_solid) &amp;&amp; !place_meeting(x - 1, y, obj_solid) &amp;&amp; !place_meeting(x, y + 1, obj_solid) &amp;&amp; !place_meeting(x, y - 1, obj_solid)) {
         guessing = false;
@@ -146,45 +151,45 @@ if (guessing &amp;&amp; !randomMotion) {
 
 if (randomMotion) {
 
-    randomCounter++;
+    scr_enemy_self_collision();    
+    if(!enemy_collision) {
+        //right
+        if (randomDir == 0) {
+            if (!place_meeting(x + 1, y, obj_solid)) {
+                x += 1;
+            } else {randomMotion = false;}
+        }
     
-    //right
-    if (randomDir == 0) {
-        if (!place_meeting(x + 1, y, obj_solid)) {
-            x += 1;
-        } else {randomMotion = false;}
-    }
+        //up
+        else if (randomDir == 1) {
+            if (!place_meeting(x , y - 1, obj_solid)) {
+                y -= 1;
+            } else {randomMotion = false;}
+        }
     
-    //up
-    else if (randomDir == 1) {
-        if (!place_meeting(x , y - 1, obj_solid)) {
-            y -= 1;
-        } else {randomMotion = false;}
-    }
+        //left
+        else if (randomDir == 2) {
+            if (!place_meeting(x - 1, y, obj_solid)) {
+                x -= 1;
+            } else {randomMotion = false;}
+        }   
     
-    //left
-    else if (randomDir == 2) {
-        if (!place_meeting(x - 1, y, obj_solid)) {
-            x -= 1;
-        } else {randomMotion = false;}
+        //down
+        else if (randomDir == 3) {
+            if (!place_meeting(x , y + 1, obj_solid)) {
+                y += 1;
+            } else {randomMotion = false;}
+        }
     }   
-    
-    //down
-    else if (randomDir == 3) {
-        if (!place_meeting(x , y + 1, obj_solid)) {
-            y += 1;
-        } else {randomMotion = false;}
-    }
     
     if (randomCounter == 60) {
         randomCounter = 0;
         randomMotion = false;
     }
     
+    randomCounter++;
+    
 }
-
-//guessSpeed; 
-//collisionType; 
 </string>
           </argument>
         </arguments>

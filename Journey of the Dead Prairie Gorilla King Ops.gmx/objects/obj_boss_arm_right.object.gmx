@@ -55,8 +55,9 @@ orig_y = y;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// check if attacking signal, and not already attacking
-if (obj_boss_head.attacking2 &amp;&amp; !attacking &amp;&amp; !returning) {
+            <string>if (obj_boss_head.dying) {
+    speed = 0;
+} else if (obj_boss_head.attacking2 &amp;&amp; !attacking &amp;&amp; !returning) { // check if attacking signal, and not already attacking
     attacking = true;
     hp = 4;
 } else if (attacking) {

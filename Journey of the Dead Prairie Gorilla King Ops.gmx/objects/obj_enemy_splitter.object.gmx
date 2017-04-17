@@ -56,14 +56,14 @@ in_motion = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (in_motion &gt; 0) in_motion --;
+            <string>if (in_motion &gt; 0) in_motion--;
 if (hp = 0) instance_destroy();
 
 if (abs(obj_player.x - x) &gt;= abs(obj_player.y - y) &amp;&amp; in_motion == 0 ) {
     in_motion = 32;
     vx = sign((obj_player.x - x));
     vy = 0;
-    show_debug_message(2);
+    //show_debug_message(2);
 }
 
 
@@ -71,7 +71,7 @@ if (abs(obj_player.y - y) &gt;= abs(obj_player.x - x) &amp;&amp; in_motion == 0)
     in_motion = 32;
     vy = sign((obj_player.y - y));
     vx = 0;
-    show_debug_message(4);
+    //show_debug_message(4);
 }
 
 x += vx;
