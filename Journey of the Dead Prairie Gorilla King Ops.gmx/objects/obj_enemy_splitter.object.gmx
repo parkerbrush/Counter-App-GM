@@ -57,7 +57,7 @@ in_motion = 0;
           <argument>
             <kind>1</kind>
             <string>if (in_motion &gt; 0) in_motion--;
-if (hp = 0) instance_destroy();
+if (hp &lt;= 0) instance_destroy();
 
 if (abs(obj_player.x - x) &gt;= abs(obj_player.y - y) &amp;&amp; in_motion == 0 ) {
     in_motion = 32;
