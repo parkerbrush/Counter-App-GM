@@ -8,4 +8,12 @@ R = keyboard_check(vk_right);
 D2 = keyboard_check(vk_down);
 U = keyboard_check(vk_up);
 
+if (L && R) {
+    L = false;
+    R = false;
+}
+if (U && D2) {
+    U = false;
+    D2 = false;
+}
 

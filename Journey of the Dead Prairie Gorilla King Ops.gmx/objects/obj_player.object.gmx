@@ -111,29 +111,28 @@ check_inputs();
 vx = (D - A) * player_speed;
 vy = (S - W) * player_speed;
 
-if (W)
-    {
+if (W) {
     sprite_index = spr_player_up;
     image_xscale = 1;
     }
     
-if (S)
-    {
+if (S) {
     sprite_index = spr_player_down;
     image_xscale = 1;
     }
     
-if (A)
-    {
+if (A) {
     sprite_index = spr_player_side;
     image_xscale = 1;
     }
     
-if (D)
-    {
+if (D) {
     sprite_index = spr_player_side;
     image_xscale = -1;
     }
+if ((W &amp;&amp; A) || (W &amp;&amp; D)) {
+    sprite_index = spr_player_up;
+}
 
 if (!keyboard_check(vk_left) &amp;&amp; !keyboard_check(vk_right) &amp;&amp; !keyboard_check(vk_up) &amp;&amp; !keyboard_check(vk_down)
      &amp;&amp; vx == 0 &amp;&amp; vy == 0 ) {
