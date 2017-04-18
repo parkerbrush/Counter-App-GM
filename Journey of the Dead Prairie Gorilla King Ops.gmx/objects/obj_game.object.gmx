@@ -26,7 +26,11 @@
           <argument>
             <kind>1</kind>
             <string>scale = 2;
-window_set_size(window_get_width() * scale, window_get_height() * scale);
+//window_set_size(window_get_width() * scale, window_get_height() * scale);
+
+if !window_get_fullscreen() {
+   window_center();
+}
 </string>
           </argument>
         </arguments>
