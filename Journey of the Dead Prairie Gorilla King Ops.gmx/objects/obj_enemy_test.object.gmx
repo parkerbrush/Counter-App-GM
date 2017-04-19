@@ -43,6 +43,8 @@ randomCounter = 0;
 randomDir = 0;
 image_speed = .1;
 enemy_collision = false;
+
+noMotionCounter = 0;
 </string>
           </argument>
         </arguments>
@@ -73,6 +75,7 @@ enemy_collision = false;
 if ((irandom(299) == 0) &amp;&amp; !randomMotion) {
     randomMotion = true;
     randomDir = irandom(3);
+    guessing = false;
     
 }
 
@@ -189,6 +192,23 @@ if (randomMotion) {
     
     randomCounter++;
     
+}
+
+if (xChange == 0 &amp;&amp; yChange == 0) {
+    noMotionCounter++;
+} else {
+    noMotionCounter = 0;
+}
+
+if (noMotionCounter &gt;= 30) {
+    randomMotion = false;
+    guessing = false;
+    randX = irandom_range(-1,1);
+    randY = irandom_range(-1,1);
+    if (!place_meeting(x + 5 * randX, y + 5 * randY, obj_enemy_test) &amp;&amp; !place_meeting(x + 5 * randX, y + 5 * randY, obj_solid)) {
+        x += randX;
+        y += randY;
+    }
 }
 </string>
           </argument>
