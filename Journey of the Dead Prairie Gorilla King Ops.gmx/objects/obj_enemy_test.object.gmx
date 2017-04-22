@@ -68,7 +68,8 @@ noMotionCounter = 0;
           <argument>
             <kind>1</kind>
             <string>if (hp &lt;= 0) {
-    if (irandom(11) == 0) instance_create(x,y,obj_powerup);
+    //if (irandom(11) == 0) instance_create(x,y,obj_powerup);
+    if (irandom(1) == 0) instance_create(x,y,obj_powerup_shotgun);
     instance_destroy();
 }
 

@@ -33,8 +33,33 @@ vx = 0;
 vy = 0;
 player_speed = 2;
 damaged = false;
+fire_type = 0;
 
 hp = 3;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>fire_type = 0;
+bullet_count /= 1.5;
 </string>
           </argument>
         </arguments>
@@ -81,7 +106,7 @@ damaged = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>bullet_count = 12;
+            <string>bullet_count = bullet_count * 2;
 </string>
           </argument>
         </arguments>
@@ -140,59 +165,92 @@ if (!keyboard_check(vk_left) &amp;&amp; !keyboard_check(vk_right) &amp;&amp; !ke
     image_xscale =1;
 }
 
-if (L &amp;&amp; !R &amp;&amp; !D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {    // left
-    until_bullet = bullet_count;
-    with(instance_create (x - 10,y + 2, obj_bullet) ) {
-        image_angle = 270;
-    }
-} 
+if (fire_type == 0) {
 
-if (!L &amp;&amp; !R &amp;&amp; D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {    // down
-    until_bullet = bullet_count;
-    with(instance_create (x - 5,y, obj_bullet) ) {
-        image_angle = 0;
+    if (L &amp;&amp; !R &amp;&amp; !D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {    // left
+        until_bullet = bullet_count;
+        with(instance_create (x - 10,y + 2, obj_bullet) ) {
+            image_angle = 270;
+        }
+    } 
+    
+    if (!L &amp;&amp; !R &amp;&amp; D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {    // down
+        until_bullet = bullet_count;
+        with(instance_create (x - 5,y, obj_bullet) ) {
+            image_angle = 0;
+        }
     }
-}
-
-if (!L &amp;&amp; !R &amp;&amp; !D2 &amp;&amp; U &amp;&amp; until_bullet == 0) {    // up
-    until_bullet = bullet_count;
-    with(instance_create (x - 10,y, obj_bullet) ) {
-        image_angle = 180;
+    
+    if (!L &amp;&amp; !R &amp;&amp; !D2 &amp;&amp; U &amp;&amp; until_bullet == 0) {    // up
+        until_bullet = bullet_count;
+        with(instance_create (x - 10,y, obj_bullet) ) {
+            image_angle = 180;
+        }
     }
-}
-
-if (!L &amp;&amp; R &amp;&amp; !D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {    // right
-    until_bullet = bullet_count;
-    with(instance_create (x - 6,y + 2, obj_bullet) ) {
-        image_angle = 90;
+    
+    if (!L &amp;&amp; R &amp;&amp; !D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {    // right
+        until_bullet = bullet_count;
+        with(instance_create (x - 6,y + 2, obj_bullet) ) {
+            image_angle = 90;
+        }
     }
-}
-
-if (!L &amp;&amp; R &amp;&amp; !D2 &amp;&amp; U &amp;&amp; until_bullet == 0) {     // up-right
-    until_bullet = bullet_count;
-    with(instance_create (x - 5,y, obj_bullet) ) {
-        image_angle = 135;
+    
+    if (!L &amp;&amp; R &amp;&amp; !D2 &amp;&amp; U &amp;&amp; until_bullet == 0) {     // up-right
+        until_bullet = bullet_count;
+        with(instance_create (x - 5,y, obj_bullet) ) {
+            image_angle = 135;
+        }
     }
-}
-
-if (!L &amp;&amp; R &amp;&amp; D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {     // down-right
-    until_bullet = bullet_count;
-    with(instance_create (x - 6,y + 8, obj_bullet) ) {
-        image_angle = 45;
+    
+    if (!L &amp;&amp; R &amp;&amp; D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {     // down-right
+        until_bullet = bullet_count;
+        with(instance_create (x - 6,y + 8, obj_bullet) ) {
+            image_angle = 45;
+        }
     }
-}
-
-if (L &amp;&amp; !R &amp;&amp; !D2 &amp;&amp; U &amp;&amp; until_bullet == 0) {     // up-left
-    until_bullet = bullet_count;
-    with(instance_create (x - 8,y, obj_bullet) ) {
-        image_angle = 225;
+    
+    if (L &amp;&amp; !R &amp;&amp; !D2 &amp;&amp; U &amp;&amp; until_bullet == 0) {     // up-left
+        until_bullet = bullet_count;
+        with(instance_create (x - 8,y, obj_bullet) ) {
+            image_angle = 225;
+        }
     }
-}
+    
+    if (L &amp;&amp; !R &amp;&amp; D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {     // down-left
+        until_bullet = bullet_count;
+        with(instance_create (x - 6,y + 10, obj_bullet) ) {
+            image_angle = 315;
+        }
+    }
 
-if (L &amp;&amp; !R &amp;&amp; D2 &amp;&amp; !U &amp;&amp; until_bullet == 0) {     // down-left
-    until_bullet = bullet_count;
-    with(instance_create (x - 6,y + 10, obj_bullet) ) {
-        image_angle = 315;
+} else if (fire_type == 1) {                            //wheel 8 dir shooting
+    if ( (L || R || U || D2) &amp;&amp; until_bullet == 0 ) {
+        until_bullet = bullet_count;
+        with(instance_create (x - 10,y + 2, obj_bullet) ) {
+            image_angle = 270;
+        }
+        with(instance_create (x - 5,y, obj_bullet) ) {
+            image_angle = 0;
+        }
+        with(instance_create (x - 10,y, obj_bullet) ) {
+            image_angle = 180;
+        }
+        with(instance_create (x - 6,y + 2, obj_bullet) ) {
+            image_angle = 90;
+        }
+        with(instance_create (x - 5,y, obj_bullet) ) {
+            image_angle = 135;
+        }
+        with(instance_create (x - 6,y + 8, obj_bullet) ) {
+            image_angle = 45;
+        }
+        with(instance_create (x - 8,y, obj_bullet) ) {
+            image_angle = 225;
+        }
+        with(instance_create (x - 6,y + 10, obj_bullet) ) {
+            image_angle = 315;
+        }
+    
     }
 }
 
@@ -224,7 +282,9 @@ if (hp &lt;= 0) {
     room_goto (rm_end_game);
 }
 
-
+if (!fire_type == 1 &amp;&amp; bullet_count &gt;= 12 /*&amp;&amp; mod_firerate == 1*/) {
+    bullet_count = 12;
+}
 
 
 </string>
