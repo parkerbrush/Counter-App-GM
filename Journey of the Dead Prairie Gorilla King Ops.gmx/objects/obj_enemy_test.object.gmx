@@ -29,6 +29,7 @@
 hp = 1;
 damage = 1;
 bulletDamage = 1;
+powerupSpawn = 20;
 
 vx = 1; 
 vy = 1;
@@ -68,8 +69,9 @@ noMotionCounter = 0;
           <argument>
             <kind>1</kind>
             <string>if (hp &lt;= 0) {
-    //if (irandom(11) == 0) instance_create(x,y,obj_powerup);
-    if (irandom(1) == 0) instance_create(x,y,obj_powerup_shotgun);
+    powerupSpawn = irandom(15);
+    if (powerupSpawn == 0) instance_create(x,y,obj_powerup);
+    if (powerupSpawn == 1) instance_create(x,y,obj_powerup_wheel);
     instance_destroy();
 }
 
@@ -201,7 +203,7 @@ if (xChange == 0 &amp;&amp; yChange == 0) {
     noMotionCounter = 0;
 }
 
-if (noMotionCounter &gt;= 30) {
+if (noMotionCounter &gt;= 6) {
     randomMotion = false;
     guessing = false;
     randX = irandom_range(-1,1);

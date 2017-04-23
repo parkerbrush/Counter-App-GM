@@ -27,7 +27,7 @@
     </sprites>
     <sprites name="PowerUps">
       <sprite>sprites\spr_powerup_firerate</sprite>
-      <sprite>sprites\spr_powerup_shotgun</sprite>
+      <sprite>sprites\spr_powerup_wheel</sprite>
     </sprites>
     <sprites name="spawn">
       <sprite>sprites\spr_enemy_test_spawn</sprite>
@@ -79,7 +79,7 @@
     </objects>
     <objects name="PowerUps">
       <object>objects\obj_powerup</object>
-      <object>objects\obj_powerup_shotgun</object>
+      <object>objects\obj_powerup_wheel</object>
     </objects>
     <objects name="game info">
       <object>objects\obj_game</object>
@@ -98,8 +98,8 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test2</room>
-    <room>rooms\rm_boss_test</room>
     <room>rooms\rm_level2</room>
+    <room>rooms\rm_boss_test</room>
     <room>rooms\rm_test</room>
     <room>rooms\rm_start_game</room>
     <room>rooms\rm_end_game</room>

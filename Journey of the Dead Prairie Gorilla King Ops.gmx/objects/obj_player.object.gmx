@@ -34,6 +34,7 @@ vy = 0;
 player_speed = 2;
 damaged = false;
 fire_type = 0;
+powerup = false;
 
 hp = 3;
 </string>
@@ -59,7 +60,7 @@ hp = 3;
           <argument>
             <kind>1</kind>
             <string>fire_type = 0;
-bullet_count /= 1.5;
+bullet_count -= 4;
 </string>
           </argument>
         </arguments>
@@ -106,7 +107,8 @@ damaged = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>bullet_count = bullet_count * 2;
+            <string>bullet_count += 6;
+powerup = false;
 </string>
           </argument>
         </arguments>

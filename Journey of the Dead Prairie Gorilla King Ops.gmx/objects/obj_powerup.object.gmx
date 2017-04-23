@@ -74,8 +74,11 @@ if (pickup == 600) instance_destroy();
           <argument>
             <kind>1</kind>
             <string>with (obj_player) {
-    bullet_count  = bullet_count / 2;
-    alarm[0] = 600;    
+    if(!powerup) {
+        bullet_count -= 6;
+        powerup = true;
+    } 
+    alarm[0] = 600;
 }
 
 instance_destroy();
