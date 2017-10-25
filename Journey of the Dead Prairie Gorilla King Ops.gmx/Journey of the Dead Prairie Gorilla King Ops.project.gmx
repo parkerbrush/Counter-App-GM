@@ -23,6 +23,7 @@
       <sprite>sprites\spr_enemy_octopus</sprite>
       <sprite>sprites\spr_enemy_test</sprite>
       <sprite>sprites\spr_blob</sprite>
+      <sprite>sprites\spr_enemy_splitter_spawn</sprite>
       <sprite>sprites\spr_enemy_splitter</sprite>
     </sprites>
     <sprites name="PowerUps">
@@ -75,6 +76,7 @@
       <object>objects\obj_enemy_test</object>
       <object>objects\obj_par_enemy</object>
       <object>objects\obj_blob</object>
+      <object>objects\obj_enemy_splitter_spawn</object>
       <object>objects\obj_enemy_splitter</object>
     </objects>
     <objects name="PowerUps">
